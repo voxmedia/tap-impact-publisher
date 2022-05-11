@@ -1,0 +1,38 @@
+version: 1
+send_anonymous_usage_stats: true
+project_id: 4661f869-e141-4386-a1b8-22f34dfd02d0
+plugins:
+  extractors:
+  - name: tap-impact-publisher
+    namespace: tap_impact_publisher
+    pip_url: -e .
+    capabilities:
+    - state
+    - catalog
+    - discover
+    settings:
+    - name: auth_token
+    - name: account_sid
+    - name: start_date
+      kind: date_iso8601
+    config:
+      start_date: '2022-02-01T00:00:00Z'
+      auth_token: *******
+      account_sid: *******
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+  - name: target-json
+    namespace: target_json
+    pip_url: target-json
+    executable: target-json
+  - name: target-bigquery
+    variant: adswerve
+    pip_url: git+https://github.com/adswerve/target-bigquery.git@0.12.1
+    config:
+      project_id: nymag-analytics-157315
+      add_metadata_columns: true
+      table_prefix: src_
+      table_config: load/target-tables-config.json
+      merge_state_messages: false

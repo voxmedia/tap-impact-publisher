@@ -1,0 +1,156 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+        "properties": {
+            "Referral_Date": {
+                "type": ["null", "string"]
+            },
+            "Action_Date": {
+                "type": ["null", "string"]
+            },
+            "Locking_Date": {
+                "type": ["null", "string"]
+            },
+            "Adj_Date": {
+                "type": ["null", "string"]
+            },
+            "Scheduled_Clearing_Date": {
+                "type": ["null", "string"]
+            },
+            "Action_Id": {
+                "type": ["null", "string"]
+            },
+            "Oid": {
+                "type": ["null", "string"]
+            },
+            "brand_id": {
+                "type": ["null", "string"]
+            },
+            "Campaign": {
+                "type": ["null", "string"]
+            },
+            "Event_Type": {
+                "type": ["null", "string"]
+            },
+            "property_type": {
+                "type": ["null", "string"]
+            },
+            "Propertyid": {
+                "type": ["null", "string"]
+            },
+            "property_name": {
+                "type": ["null", "string"]
+            },
+            "Status": {
+                "type": ["null", "string"]
+            },
+            "adv_cust_status": {
+                "type": ["null", "string"]
+            },
+            "status_detail": {
+                "type": ["null", "string"]
+            },
+            "Category_List": {
+                "type": ["null", "string"]
+            },
+            "SKU": {
+                "type": ["null", "string"]
+            },
+            "Item_Name": {
+                "type": ["null", "string"]
+            },
+            "Category": {
+                "type": ["null", "string"]
+            },
+            "Subcategory": {
+                "type": ["null", "string"]
+            },
+            "Quantity": {
+                "type": ["null", "string"]
+            },
+            "Sale_Amount": {
+                "type": ["null", "string"]
+            },
+            "Original_Sale_Amount": {
+                "type": ["null", "string"]
+            },
+            "Payout": {
+                "type": ["null", "string"]
+            },
+            "Original_Payout": {
+                "type": ["null", "string"]
+            },
+            "VAT": {
+                "type": ["null", "string"]
+            },
+            "Promo_Code": {
+                "type": ["null", "string"]
+            },
+            "io_name": {
+                "type": ["null", "string"]
+            },
+            "Ad": {
+                "type": ["null", "string"]
+            },
+            "Referring_URL": {
+                "type": ["null", "string"]
+            },
+            "Referral_Type": {
+                "type": ["null", "string"]
+            },
+            "Geo_Location": {
+                "type": ["null", "string"]
+            },
+            "talk_duration": {
+                "type": ["null", "string"]
+            },
+            "called_number": {
+                "type": ["null", "string"]
+            },
+            "call_time": {
+                "type": ["null", "string"]
+            },
+            "SubId1": {
+                "type": ["null", "string"]
+            },
+            "SubId2": {
+                "type": ["null", "string"]
+            },
+            "SubId3": {
+                "type": ["null", "string"]
+            },
+            "SharedId": {
+                "type": ["null", "string"]
+            },
+            "customer_id": {
+                "type": ["null", "string"]
+            },
+            "Notes": {
+                "type": ["null", "string"]
+            },
+            "Date1": {
+                "type": ["null", "string"]
+            },
+            "Date2": {
+                "type": ["null", "string"]
+            },
+            "Paystub": {
+                "type": ["null", "string"]
+            },
+            "Device": {
+                "type": ["null", "string"]
+            },
+            "Os": {
+                "type": ["null", "string"]
+            },
+            "user_agent": {
+                "type": ["null", "string"]
+            },
+            "original_currency": {
+                "type": ["null", "string"]
+            },
+            "original_currency_sale_amount": {
+                "type": ["null", "string"]
+            }
+        }
+}

@@ -1,0 +1,183 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "CompanyName": {
+            "type": ["null", "string"]
+        },
+        "PrimaryPromotionalMethod": {
+            "type": ["null", "string"]
+        },
+        "PromotionalMethods": {
+            "type": ["null", "string"]
+        },
+        "Website": {
+            "type": ["null", "string"]
+        },
+        "PrimaryPhoneNumber": {
+            "type": ["null", "string"]
+        },
+        "PrimaryPhoneNumberCountry": {
+            "type": ["null", "string"]
+        },
+        "SecondaryPhoneNumber": {
+            "type": ["null", "string"]
+        },
+        "SecondaryPhoneNumberCountry": {
+            "type": ["null", "string"]
+        },
+        "MinimumContactRating": {
+            "type": ["null", "string"]
+        },
+        "Timezone": {
+            "type": ["null", "string"]
+        },
+        "Currency": {
+            "type": ["null", "string"]
+        },
+        "RegisteredForIndirectTax": {
+            "type": ["null", "string"]
+        },
+        "IndirectTaxNumber": {
+            "type": ["null", "string"]
+        },
+        "OrganizationType": {
+            "type": ["null", "string"]
+        },
+        "EinSsnForeignTaxId": {
+            "type": ["null", "string"]
+        },
+        "CorporateAddress": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "AddressLine1": {
+                    "type": ["null", "string"]
+                },
+                "AddressLine2": {
+                    "type": ["null", "string"]
+                },
+                "City": {
+                    "type": ["null", "string"]
+                },
+                "State": {
+                    "type": ["null", "string"]
+                },
+                "PostalCode": {
+                    "type": ["null", "string"]
+                },
+                "Country": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "BillingAddress": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "AddressLine1": {
+                    "type": ["null", "string"]
+                },
+                "AddressLine2": {
+                    "type": ["null", "string"]
+                },
+                "City": {
+                    "type": ["null", "string"]
+                },
+                "State": {
+                    "type": ["null", "string"]
+                },
+                "PostalCode": {
+                    "type": ["null", "string"]
+                },
+                "Country": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "FinancialContact": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "UserId": {
+                    "type": ["null", "string"]
+                },
+                "Name": {
+                    "type": ["null", "string"]
+                },
+                "Email": {
+                    "type": ["null", "string"]
+                },
+                "WorkPhoneNumber": {
+                    "type": ["null", "string"]
+                },
+                "WorkPhoneNumberCountry": {
+                    "type": ["null", "string"]
+                },
+                "CellPhoneNumber": {
+                    "type": ["null", "string"]
+                },
+                "CellPhoneNumberCountry": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "TechnicalContact": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "UserId": {
+                    "type": ["null", "string"]
+                },
+                "Name": {
+                    "type": ["null", "string"]
+                },
+                "Email": {
+                    "type": ["null", "string"]
+                },
+                "WorkPhoneNumber": {
+                    "type": ["null", "string"]
+                },
+                "WorkPhoneNumberCountry": {
+                    "type": ["null", "string"]
+                },
+                "CellPhoneNumber": {
+                    "type": ["null", "string"]
+                },
+                "CellPhoneNumberCountry": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "CommercialContact": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "UserId": {
+                    "type": ["null", "string"]
+                },
+                "Name": {
+                    "type": ["null", "string"]
+                },
+                "Email": {
+                    "type": ["null", "string"]
+                },
+                "WorkPhoneNumber": {
+                    "type": ["null", "string"]
+                },
+                "WorkPhoneNumberCountry": {
+                    "type": ["null", "string"]
+                },
+                "CellPhoneNumber": {
+                    "type": ["null", "string"]
+                },
+                "CellPhoneNumberCountry": {
+                    "type": ["null", "string"]
+                }
+            }
+        },
+        "Uri": {
+            "type": ["null", "string"]
+        }
+    }
+}

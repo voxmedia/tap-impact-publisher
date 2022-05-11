@@ -1,0 +1,56 @@
+{
+    "streams": {
+      "performance_report_custom": {
+        "partition_field": "date",
+        "cluster_fields": []
+      },
+      "campaign_bounces": {
+        "partition_field": "event_time",
+        "cluster_fields": ["list_id", "message_type"]
+      },
+      "campaign_clicks": {
+        "partition_field": "event_time",
+        "cluster_fields": ["list_id", "engagement"]
+      },
+      "campaign_opens": {
+        "partition_field": "event_time",
+        "cluster_fields": ["list_id", "engagement"]
+      },
+      "campaign_sends": {
+        "partition_field": "event_time",
+        "cluster_fields": ["list_id", "engagement"]
+      },
+      "campaign_unsubscribes": {
+        "partition_field": "event_time",
+        "cluster_fields": ["list_id", "message_type"]
+      },
+      "triggered_bounces": {
+        "partition_field": "event_time",
+        "cluster_fields": ["template_id", "message_type"]
+      },
+      "triggered_clicks": {
+        "partition_field": "event_time",
+        "cluster_fields": ["template_id", "engagement"]
+      },
+      "triggered_opens": {
+        "partition_field": "event_time",
+        "cluster_fields": ["template_id", "engagement"]
+      },
+      "triggered_sends": {
+        "partition_field": "event_time",
+        "cluster_fields": ["template_id", "engagement"]
+      },
+      "triggered_unsubscribes": {
+        "partition_field": "event_time",
+        "cluster_fields": ["template_id", "message_type"]
+      },
+      "catalog": {
+        "partition_field": "_time_loaded",
+        "cluster_fields": []
+      },
+      "manifest": {
+        "partition_field": "_time_loaded",
+        "cluster_fields": []
+      }
+    }
+}
