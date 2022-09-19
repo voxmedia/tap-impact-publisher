@@ -82,7 +82,7 @@ class ReportsStream(impactPublisherStream):
         """
         start = self.get_starting_timestamp(context)
         if start != pendulum.parse(self.config['start_date'], tz="America/New_York"):
-            start = start.subtract(months=6).start_of('week')
+            start = start.subtract(months=12).start_of('week')
 
         iterable = (
             (start.add(weeks=i), start.add(weeks=i).end_of("week"))
