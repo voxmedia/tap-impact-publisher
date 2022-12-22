@@ -1,6 +1,7 @@
 """Stream type classes for tap-impact-publisher."""
 
 import copy
+import urllib.parse
 from pathlib import Path
 import time
 from typing import Any, cast, Dict, Optional, Union, List, Iterable, Tuple
@@ -13,8 +14,6 @@ from singer_sdk.helpers.jsonpath import extract_jsonpath
 from tap_impact_publisher.client import impactPublisherStream
 
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
-# TODO: - Override `UsersStream` and `GroupsStream` with your own stream definition.
-#       - Copy-paste as many times as needed to create multiple stream types.
 
 
 class AccountsStream(impactPublisherStream):
@@ -129,7 +128,7 @@ class ReportsStream(impactPublisherStream):
             "END_DATE": end_date
         }
         if next_page_token:
-            params["page"] = next_page_token
+            return urllib.parse.parse_qs(urllib.parse.urlparse(next_page_token).query)
         if self.replication_key:
             params["sort"] = "asc"
             params["order_by"] = self.replication_key
@@ -156,11 +155,12 @@ class ReportsStream(impactPublisherStream):
         http_method = self.rest_method
         url: str = self.get_url(context)
         self.logger.info(
-            f"making params for {start_date.to_date_string()} to {end_date.to_date_string()}"
+            f"Making params for {start_date.to_date_string()} to {end_date.to_date_string()}"
         )
         params: dict = self.get_url_params(
-            start_date.format('YYYY-MM-DD'),
-            end_date.format('YYYY-MM-DD')
+            start_date=start_date.format('YYYY-MM-DD'),
+            end_date=end_date.format('YYYY-MM-DD'),
+            next_page_token=next_page_token,
         )
         request_data = self.prepare_request_payload(context, next_page_token)
         headers = self.http_headers
@@ -204,20 +204,34 @@ class ReportsStream(impactPublisherStream):
         decorated_request = self.request_decorator(self._request)
 
         for start, end in self._make_time_chunks(context):
+            finished = False
             self.logger.info(f"Fetching {self.name} from {start} to {end}")
-            prepared_request = self.prepare_request(
-                start_date=start,
-                end_date=end,
-                context=context,
-                next_page_token=next_page_token
-            )
-            resp = decorated_request(prepared_request, context)
-            for row in self.parse_response(resp):
-                yield row
-            time.sleep(1)
-            self.finalize_state_progress_markers(
-                {"bookmarks": {self.name: {"replication_key_value": end}}}
-            )
+
+            while not finished:
+                prepared_request = self.prepare_request(
+                    start_date=start,
+                    end_date=end,
+                    context=context,
+                    next_page_token=next_page_token
+                )
+                resp = decorated_request(prepared_request, context)
+                for row in self.parse_response(resp):
+                    yield row
+                time.sleep(1)
+                self.finalize_state_progress_markers(
+                    {"bookmarks": {self.name: {"replication_key_value": end}}}
+                )
+                previous_token = copy.deepcopy(next_page_token)
+                next_page_token = self.get_next_page_token(
+                    response=resp, previous_token=previous_token
+                )
+                if next_page_token and next_page_token == previous_token:
+                    raise RuntimeError(
+                        f"Loop detected in pagination. "
+                        f"Pagination token {next_page_token} is identical to prior token."
+                    )
+                # Cycle until get_next_page_token() no longer returns a value
+                finished = not next_page_token
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""
