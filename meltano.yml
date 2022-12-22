@@ -17,8 +17,8 @@ plugins:
       kind: date_iso8601
     config:
       start_date: '2022-02-01T00:00:00Z'
-      auth_token: *******
-      account_sid: *******
+      auth_token: '*******'
+      account_sid: '*******'
   loaders:
   - name: target-jsonl
     variant: andyh1203
