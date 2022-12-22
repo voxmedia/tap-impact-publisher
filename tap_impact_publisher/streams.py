@@ -225,7 +225,6 @@ class ReportsStream(impactPublisherStream):
                 next_page_token = self.get_next_page_token(
                     response=resp, previous_token=previous_token
                 )
-                self.logger.info(f"L225: Next page token is {next_page_token}")
                 if next_page_token and next_page_token == previous_token:
                     raise RuntimeError(
                         f"Loop detected in pagination. "
