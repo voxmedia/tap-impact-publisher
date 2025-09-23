@@ -152,7 +152,7 @@ class ReportsStream(impactPublisherStream):
             Build a request with the stream's URL, path, query parameters,
             HTTP headers and authenticator.
         """
-        http_method = self._http_method
+        http_method = self.rest_method
         url: str = self.get_url(context)
         self.logger.info(
             f"Making params for {start_date.to_date_string()} to {end_date.to_date_string()}"

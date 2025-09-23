@@ -16,6 +16,8 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 class impactPublisherStream(RESTStream):
     """impact-publisher stream class."""
 
+    rest_method = "GET"  # Default HTTP method
+
     @property
     def url_base(self) -> str:
         """Return the API URL root, configurable via tap settings."""
